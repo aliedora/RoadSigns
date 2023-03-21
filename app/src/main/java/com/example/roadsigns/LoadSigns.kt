@@ -101,7 +101,40 @@ class LoadSigns {
             SignModel(R.drawable.no_parking_odd, "Parking prohibited ODD dates", true ),
             SignModel(R.drawable.no_parking_even, "Parking prohibited EVEN dates", true ),
             SignModel(R.drawable.parking_limited, "Yes you can park limited time (restricted duration)", true ),
-        )
+
+
+            SignModel(R.drawable.hump_bridge, "Hump bridge", false ),
+            SignModel(R.drawable.junction_bend_ahead1, "Junction on bend ahead", false ),
+            SignModel(R.drawable.junction_bend_ahead2, "Junction on bend ahead", false ),
+            SignModel(R.drawable.pedestrians_ahead, "Pedestrians in road ahead", false ),
+            SignModel(R.drawable.airport, "Airport (low flying planes)", false ),
+            SignModel(R.drawable.traffic_jam, "Traffic queues likely ahead", false ),
+            SignModel(R.drawable.pedestrian_crossing, "Pedestrians crossing", false ),
+            SignModel(R.drawable.soft_road_left, "Soft road left (verge on the left)", false ),
+            SignModel(R.drawable.soft_road_right, "Soft road right (verge on the right)", false ),
+            SignModel(R.drawable.tunnel, "Tunnel ahead", false ),
+            SignModel(R.drawable.electric_cable, "Overhead electric cable", false ),
+            SignModel(R.drawable.risk_of_ice, "Risk of ice", false ),
+            SignModel(R.drawable.dual_carriegeway, "2 roads become 1 (Dual carriageway ends)", false ),
+            SignModel(R.drawable.one_wa1, "One-way road", false ),
+
+            SignModel(R.drawable.compulsory_left_turn, "Compulsory left turn", false ),
+            SignModel(R.drawable.compulsory_right_turn, "Compulsory right turn", false ),
+            SignModel(R.drawable.compulsory_turn_both, "Compulsory turn from left or right", false ),
+            SignModel(R.drawable.box_junction, "Box junction (Controlled square crossing). Enter the square when you intend to turn right", true ),
+            SignModel(R.drawable.humper_crossing, "Humped crossing", false ),
+            SignModel(R.drawable.warning_school, "Warning signs in schools", false ),
+
+
+            SignModel(R.drawable.residental_end, "End residential area (users don't have equal priority)", false ),
+            SignModel(R.drawable.resid, "Residential area (users have equal priority)", false ),
+            SignModel(R.drawable.overpass, "Overpass", false ),
+            SignModel(R.drawable.underpass, "Underpass", false ),
+            SignModel(R.drawable.underpass_ramp, "Underpass with ramp", false ),
+            SignModel(R.drawable.pedestrian_blue, "JPedestrian crossing", false ),
+            SignModel(R.drawable.speed_road, "Speed road", false ),
+            SignModel(R.drawable.end_speed_road, "End of speed road", false ),
+            )
         return signs
     }
 }
