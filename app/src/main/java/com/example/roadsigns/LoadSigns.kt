@@ -91,7 +91,6 @@ class LoadSigns {
             SignModel(R.drawable.go_straight_or_right, "Go straight or right", false ),
 
             SignModel(R.drawable.dead_end, "Dead end road (No way through)", false ),
-            SignModel(R.drawable.one_wa1, "One-way road", false ),
             SignModel(R.drawable.one_way2, "One-way road", false ),
             SignModel(R.drawable.motorway, "Motorway", false ),
             SignModel(R.drawable.end_motorway, "End of motorway", false ),
@@ -110,8 +109,8 @@ class LoadSigns {
             SignModel(R.drawable.airport, "Airport (low flying planes)", false ),
             SignModel(R.drawable.traffic_jam, "Traffic queues likely ahead", false ),
             SignModel(R.drawable.pedestrian_crossing, "Pedestrians crossing", false ),
-            SignModel(R.drawable.soft_road_left, "Soft road left (verge on the left)", false ),
-            SignModel(R.drawable.soft_road_right, "Soft road right (verge on the right)", false ),
+            SignModel(R.drawable.soft_road_right, "Soft road left (verge on the left)", false ),
+            SignModel(R.drawable.soft_road_left, "Soft road right (verge on the right)", false ),
             SignModel(R.drawable.tunnel, "Tunnel ahead", false ),
             SignModel(R.drawable.electric_cable, "Overhead electric cable", false ),
             SignModel(R.drawable.risk_of_ice, "Risk of ice", false ),
@@ -131,9 +130,31 @@ class LoadSigns {
             SignModel(R.drawable.overpass, "Overpass", false ),
             SignModel(R.drawable.underpass, "Underpass", false ),
             SignModel(R.drawable.underpass_ramp, "Underpass with ramp", false ),
-            SignModel(R.drawable.pedestrian_blue, "JPedestrian crossing", false ),
+            SignModel(R.drawable.pedestrian_blue, "Pedestrian crossing", false ),
             SignModel(R.drawable.speed_road, "Speed road", false ),
             SignModel(R.drawable.end_speed_road, "End of speed road", false ),
+
+            SignModel(R.drawable.broken_line, "You can overtake", false ),
+            SignModel(R.drawable.one_line, "No overtaking", false ),
+            SignModel(R.drawable.two_lines, "No overtaking", false ),
+            SignModel(R.drawable.broken_left, "Overtaking from left (broken side)", false ),
+            SignModel(R.drawable.broken_right, "Overtaking from right (broken side)", false ),
+            SignModel(R.drawable.zig_zag, "No overtaking, no parking alongside", false ),
+            SignModel(R.drawable.double_yellow, "No stop, no parking", false ),
+            SignModel(R.drawable.one_yellow, "No parking", false ),
+            SignModel(R.drawable.broken_side, "Bus stop", false ),
+            SignModel(R.drawable.road_lines, "This part of road must not used by vehicles", false ),
+            SignModel(R.drawable.road_lines2, "This part of road must not used by vehicles", false ),
+            SignModel(R.drawable.change_directions, "Change direction in 200 m", false ),
+            SignModel(R.drawable.reduce_lines, "Reduce number of lanes in 600m", false ),
+            SignModel(R.drawable.gray_sircle, "Cycle in small roundabout (разметка)", false ),
+
+            SignModel(R.drawable.ped_cross, "Pedestrians crossing", false ),
+            SignModel(R.drawable.pedal_cyclist, "Road used by pedal cyclists", false ),
+            SignModel(R.drawable.ditch, "Ditch", false ),
+
+
+
             )
         return signs
     }

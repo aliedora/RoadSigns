@@ -18,9 +18,10 @@ import com.example.roadsigns.models.SignModel
 class MainActivity : AppCompatActivity() {
     lateinit var vpSigns: ViewPager2
     lateinit var btnMix: Button
+    lateinit var btnShow: Button
     lateinit var switchShow: Switch
     lateinit var tvCounter: TextView
-    private lateinit var signsAdapter: SignsAdapter
+    private var signsAdapter: SignsAdapter? = null
     private var isDescriptionVisible = false
     lateinit var signs : ArrayList<SignModel>
 
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         vpSigns = findViewById(R.id.vpSigns)
         btnMix = findViewById(R.id.btnMix)
+        btnShow = findViewById(R.id.btnShow)
         switchShow = findViewById(R.id.swShow)
         tvCounter = findViewById(R.id.tvCounter)
 
@@ -41,17 +43,23 @@ class MainActivity : AppCompatActivity() {
             vpSigns.adapter = signsAdapter
         }
 
+        btnShow.setOnClickListener {
+            signsAdapter = SignsAdapter(this, LoadSigns().loadSigns(), isDescriptionVisible)
+            vpSigns.adapter = signsAdapter
+        }
+
         switchShow.setOnCheckedChangeListener { buttonView, isChecked ->
-            isDescriptionVisible = isChecked
-            signsAdapter.changeVisibleStatus(isDescriptionVisible)
-            signsAdapter.notifyDataSetChanged()
+                isDescriptionVisible = isChecked
+                signsAdapter?.changeVisibleStatus(isDescriptionVisible)
+                signsAdapter?.notifyDataSetChanged()
+
         }
 
 
         vpSigns.registerOnPageChangeCallback(object : OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                tvCounter.text = "${(position + 1)} / ${signsAdapter.itemCount}"
+                tvCounter.text = "${(position + 1)} / ${signsAdapter?.itemCount}"
             }
 
         })
