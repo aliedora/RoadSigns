@@ -27,6 +27,7 @@ internal class SignsAdapter(ctx: Context, private val signs: ArrayList<SignModel
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         holder.ivSign.setImageResource(signs[position].id)
         holder.explanations.text = signs[position].description
 
@@ -50,7 +51,6 @@ internal class SignsAdapter(ctx: Context, private val signs: ArrayList<SignModel
 
         }
     }
-
 
     override fun getItemCount(): Int {
         return signs.size

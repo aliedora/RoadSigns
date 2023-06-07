@@ -1,9 +1,8 @@
 package com.example.roadsigns
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import android.widget.Button
-import android.widget.CompoundButton
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,8 +10,9 @@ import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.example.roadsigns.adapters.SignsAdapter
 import com.example.roadsigns.models.SignModel
-
-
+import com.google.android.material.internal.ParcelableSparseArray
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var tvCounter: TextView
     private var signsAdapter: SignsAdapter? = null
     private var isDescriptionVisible = false
-    lateinit var signs : ArrayList<SignModel>
+    private var signs: ArrayList<SignModel> = LoadSigns().loadMixedSigns()
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,17 +34,26 @@ class MainActivity : AppCompatActivity() {
         btnShow = findViewById(R.id.btnShow)
         switchShow = findViewById(R.id.swShow)
         tvCounter = findViewById(R.id.tvCounter)
+//        mix()
 
-        signs = LoadSigns().loadSigns()
+        if (savedInstanceState != null) {
+            val currentPos = savedInstanceState.getInt("position");
+            vpSigns.currentItem = currentPos
+            signsAdapter = SignsAdapter(this, signs, isDescriptionVisible)
+            tvCounter.text = "${(currentPos)} / ${signsAdapter?.itemCount}"
+            vpSigns.adapter = signsAdapter
+        }
+
 
         btnMix.setOnClickListener {
-            signs.shuffle()
+            signs = ArrayList(signs.shuffled())
             signsAdapter = SignsAdapter(this, signs, isDescriptionVisible)
             vpSigns.adapter = signsAdapter
         }
 
         btnShow.setOnClickListener {
-            signsAdapter = SignsAdapter(this, LoadSigns().loadSigns(), isDescriptionVisible)
+            signs = LoadSigns().loadMixedSigns()
+            signsAdapter = SignsAdapter(this, signs, isDescriptionVisible)
             vpSigns.adapter = signsAdapter
         }
 
@@ -52,7 +61,6 @@ class MainActivity : AppCompatActivity() {
                 isDescriptionVisible = isChecked
                 signsAdapter?.changeVisibleStatus(isDescriptionVisible)
                 signsAdapter?.notifyDataSetChanged()
-
         }
 
 
@@ -63,5 +71,17 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        savedInstanceState.putInt("position", vpSigns.currentItem)
+        super.onSaveInstanceState(savedInstanceState)
+    }
+
+    private fun mix(){
+        val mixedSigns = ArrayList(LoadSigns().loadSigns().shuffled())
+        mixedSigns.forEach{
+            println(it.toString())
+        }
     }
 }
